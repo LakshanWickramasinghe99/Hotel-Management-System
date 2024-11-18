@@ -1,69 +1,52 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
-import Logo from "../assets/logo.jpg";
+import { NavLink } from "react-router-dom"; // Use NavLink for active link styles
+import Logo from "../assets/logo.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // For mobile menu toggle
 
   return (
     <header className="bg-primary text-white shadow-lg">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div className="max-w-7xl max-h-16 mx-auto px-6 py-2 flex justify-between items-center">
         {/* Logo Section */}
         <div>
           <a href="#" aria-label="Homepage">
-            <img
-              src={Logo}
-              alt="Company Logo"
-              className="w-28"
-            />
+            <img src={Logo} alt="Company Logo" className="w-24" />
           </a>
         </div>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center space-x-8 font-medium">
-          <Link to="/" className="hover:text-gray-300 transition duration-200">
+        <nav className="hidden md:flex items-center space-x-6 font-medium">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `hover:text-gray-300 transition duration-200 ${
+                isActive ? "underline underline-offset-4" : ""
+              }`
+            }
+          >
             Home
-          </Link>
-          <Link to="/faq" className="hover:text-gray-300 transition duration-200">
+          </NavLink>
+          <NavLink
+            to="/faq"
+            className={({ isActive }) =>
+              `hover:text-gray-300 transition duration-200 ${
+                isActive ? "underline underline-offset-4" : ""
+              }`
+            }
+          >
             FAQs
-          </Link>
+          </NavLink>
           <a href="#contact" className="hover:text-gray-300 transition duration-200">
             Contact us
           </a>
-
-          {/* Dropdown Menu Example */}
-          <div className="relative group">
-            <button className="hover:text-gray-300 transition duration-200">
-              Services
-            </button>
-            <div className="absolute hidden group-hover:block bg-white text-black rounded-lg mt-2 shadow-lg py-2">
-              <a
-                href="#web-design"
-                className="block px-4 py-2 hover:bg-gray-100"
-              >
-                Web Design
-              </a>
-              <a
-                href="#seo"
-                className="block px-4 py-2 hover:bg-gray-100"
-              >
-                SEO
-              </a>
-              <a
-                href="#marketing"
-                className="block px-4 py-2 hover:bg-gray-100"
-              >
-                Marketing
-              </a>
-            </div>
-          </div>
         </nav>
 
         {/* Book Now Button */}
         <div className="hidden md:block">
           <button
             onClick={() => alert("Booking is not available yet")}
-            className="bg-gradient-to-r from-white to-slate-100 text-black py-2 px-6 rounded-full transition-all duration-300 hover:shadow-lg"
+            className="bg-gradient-to-r from-white to-slate-100 text-black py-1 px-4 rounded-full transition-all duration-300 hover:shadow-lg"
           >
             Book Now
           </button>
@@ -83,19 +66,33 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="bg-primary md:hidden space-y-4 px-4 py-2 text-white font-medium">
-          <Link to="/" className="block hover:text-gray-300 transition duration-200">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `block hover:text-gray-300 transition duration-200 ${
+                isActive ? "underline underline-offset-4" : ""
+              }`
+            }
+          >
             Home
-          </Link>
-          <Link to="/faq" className="block hover:text-gray-300 transition duration-200">
+          </NavLink>
+          <NavLink
+            to="/faq"
+            className={({ isActive }) =>
+              `block hover:text-gray-300 transition duration-200 ${
+                isActive ? "underline underline-offset-4" : ""
+              }`
+            }
+          >
             FAQs
-          </Link>
+          </NavLink>
           <a href="#contact" className="block hover:text-gray-300 transition duration-200">
             Contact us
           </a>
           <div className="border-t border-white my-2"></div>
           <button
             onClick={() => alert("Booking is not available yet")}
-            className="bg-gradient-to-r from-white to-slate-100 text-black py-2 px-4 w-full rounded-full transition-all duration-300 hover:shadow-lg"
+            className="bg-gradient-to-r from-white to-slate-100 text-black py-1 px-4 w-full rounded-full transition-all duration-300 hover:shadow-lg"
           >
             Book Now
           </button>

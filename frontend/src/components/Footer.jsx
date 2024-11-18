@@ -5,7 +5,7 @@ import { faFacebookF, faTwitter, faLinkedinIn, faInstagram, faTiktok, faYoutube 
 const Footer = () => {
   return (
     <footer className="bg-primary text-white py-10">
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
+      <div className="max-w-7xl max-h-48 mx-auto px-4 md:px-8">
         {/* Footer Top: Links & Newsletter */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* About Us */}
@@ -52,27 +52,6 @@ const Footer = () => {
               <li>Email: support@example.com</li>
               <li>Phone: +123 456 7890</li>
             </ul>
-          </div>
-
-          {/* Newsletter Signup */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Stay Updated</h3>
-            <p className="text-sm text-gray-400 mb-4">
-              Subscribe to our newsletter for the latest updates and offers.
-            </p>
-            <form className="flex items-center">
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="w-full px-4 py-2 text-black rounded-l-md focus:outline-none"
-              />
-              <button
-                type="submit"
-                className="bg-gradient-to-r from-purple-500 to-blue-500 px-4 py-2 rounded-r-md text-white font-medium transition hover:opacity-90"
-              >
-                Subscribe
-              </button>
-            </form>
           </div>
         </div>
 

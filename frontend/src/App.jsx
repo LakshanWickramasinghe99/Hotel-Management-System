@@ -5,6 +5,7 @@ import Footer from "./components/Footer"; // Import Footer Component
 import '@fortawesome/fontawesome-free/css/all.css';
 import FAQPage from "./components/FAQs";
 import HomePage from "./components/homePage";
+import DisplayDetails from "./components/DisplayDetails";
 
 const App = () => {
   return (
@@ -20,7 +21,8 @@ const App = () => {
           <Routes>
             {/* Define Routes for Pages */}
             <Route path="/" element={<HomePage/>} />
-            <Route path="/faq" element={<FAQPage />} /> {/* Define Route for FAQ page */}
+            <Route path="/faq" element={<FAQPage />} />
+            <Route path="/details" element={<DisplayDetails />} />
           </Routes>
         </main>
 
